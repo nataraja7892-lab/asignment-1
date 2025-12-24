@@ -1,0 +1,36 @@
+CREATE DATABASE clg;
+USE clg;
+
+CREATE TABLE stu (
+    stu_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    age INT,
+    dept VARCHAR(50)
+);
+
+CREATE TABLE courses (
+    course_id INT PRIMARY KEY AUTO_INCREMENT,
+    course_name VARCHAR(50),
+    dept VARCHAR(50),
+    credits INT
+);
+
+INSERT INTO stu (name, age, dept) VALUES ('Alice', 20, 'Computer Science'), ('Bob', 22, 'Mathematics'),
+('Charlie', 21, 'Computer Science'), ('Diana', 23, 'Physics'), ('Eve', 20, 'Mathematics');
+
+INSERT INTO courses (course_name, dept, credits) VALUES ('Database Systems', 'Computer Science', 4), ('Algorithms', 'Computer Science', 3),
+('Linear Algebra', 'Mathematics', 4), ('Quantum Mechanics', 'Physics', 5);
+
+SELECT * FROM stu WHERE age > 20 AND dept = 'Computer Science';
+
+SELECT * FROM stu WHERE dept = 'Mathematics' OR dept = 'Physics';
+
+SELECT * FROM stu WHERE NOT dept = 'Computer Science';
+
+SELECT * FROM stu ORDER BY age ASC;
+
+SELECT * FROM courses ORDER BY credits DESC;
+
+SELECT * FROM stu WHERE name LIKE 'A%';
+
+SELECT * FROM courses WHERE course_name LIKE '%Data%';
